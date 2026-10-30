@@ -451,6 +451,20 @@ html{scroll-padding-top:140px}
 .stats{grid-template-columns:repeat(3,minmax(0,1fr))}
 @media (max-width:820px){.stats{grid-template-columns:minmax(0,1fr)}.stats .stat{border-left:0;padding-left:0;border-top:1px solid var(--line)}.stats .stat:first-child{border-top:0}}
 html,body{overflow-anchor:none}
+/* Хроника: вертикальная лента */
+.chron{grid-template-columns:minmax(0,1fr)!important;gap:0;padding:0 0 0 38px!important;max-width:860px}
+.chron svg{display:none}
+.chron::before{content:"";position:absolute;left:8px;top:10px;bottom:10px;width:3px;border-radius:3px;background:linear-gradient(var(--rasp),color-mix(in srgb,var(--rasp) 25%,transparent));transform-origin:50% 0;transform:scaleY(0);transition:transform 1.8s var(--ease)}
+.chron.in::before{transform:none}
+.chron .node{grid-template-columns:150px minmax(0,1fr);gap:4px 22px;align-content:start;padding:16px 0;border-bottom:1px solid var(--line)}
+.chron .node:last-child{border-bottom:0}
+.chron .node::before{top:20px;left:-38px}
+.chron .node time{grid-row:1/span 2;padding-top:3px}
+.chron .node b{font-size:clamp(18px,2vw,22px)}
+.chron .node.hot{background:var(--tint);border-radius:14px;padding:16px 18px;margin-left:-18px;border-bottom:0}
+.chron .node.hot::before{left:-20px}
+.chron.in .node:nth-child(n){transition-delay:calc(var(--i,0) * .18s)}
+@media (max-width:620px){.chron .node{grid-template-columns:minmax(0,1fr)}.chron .node time{grid-row:auto}}
 /* Лайтбокс */
 .lb{position:fixed;inset:0;z-index:100;background:rgba(14,4,10,.94);display:grid;place-items:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));opacity:0;pointer-events:none;transition:opacity .35s var(--ease)}
 .lb.open{opacity:1;pointer-events:auto}
@@ -611,12 +625,12 @@ a:focus-visible,button:focus-visible,.ph:focus-visible,.rd:focus-visible{outline
       <div class="ch-head rv"><span class="ch-no">Глава 01 · Хроника</span><h2>Неделя, которая <em>перевернула штат</em></h2><p class="lede">От слов в прямом эфире до наручников прошло меньше трёх суток. А вскоре у штата уже был новый губернатор.</p></div>
       <div class="chron" id="chron">
         <svg viewBox="0 0 1000 12" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="6" x2="1000" y2="6"/></svg>
-        <div class="node"><time>23 октября</time><b>Интервью в LV News</b><span>Губернатор в эфире: «Бюро — не отдельное государство внутри нашего штата».</span></div>
-        <div class="node"><time>24 октября</time><b>Митинг у ФБР</b><span>Люди выходят к офису Бюро. Губернатор позже скажет на допросе: по митингу открыли огонь.</span></div>
-        <div class="node"><time>25 октября</time><b>Постановление</b><span>Губернатор упрощает Уголовный кодекс и отменяет статус ООП. ФБР называет это ударом по безопасности.</span></div>
-        <div class="node"><time>25 октября, вечер</time><b>Рейд и арест</b><span>Штурм мэрии, наручники, вертолёт и допрос под запись бодикамеры.</span></div>
-        <div class="node"><time>Эта неделя</time><b>Отставка и новый губернатор</b><span>Сенатор снимает Вилладжа с должности, вскоре он пропадает без вести. Инаугурация John Nightmare, бывшего оперативника спецотряда HRT под руководством FBI, участвовавшего в штурме.</span></div>
-        <div class="node hot"><time>29 октября</time><b>Шериф в эфире</b><span>Калкин Шварц: «Мы им не рабы». Экс-губернатор числится пропавшим без вести, полиция ведёт поиски.</span></div>
+        <div class="node" style="--i:1"><time>23 октября</time><b>Интервью в LV News</b><span>Губернатор в эфире: «Бюро — не отдельное государство внутри нашего штата».</span></div>
+        <div class="node" style="--i:2"><time>24 октября</time><b>Митинг у ФБР</b><span>Люди выходят к офису Бюро. Губернатор позже скажет на допросе: по митингу открыли огонь.</span></div>
+        <div class="node" style="--i:3"><time>25 октября</time><b>Постановление</b><span>Губернатор упрощает Уголовный кодекс и отменяет статус ООП. ФБР называет это ударом по безопасности.</span></div>
+        <div class="node" style="--i:4"><time>25 октября, вечер</time><b>Рейд и арест</b><span>Штурм мэрии, наручники, вертолёт и допрос под запись бодикамеры.</span></div>
+        <div class="node" style="--i:5"><time>Эта неделя</time><b>Отставка и новый губернатор</b><span>Сенатор снимает Вилладжа с должности, вскоре он пропадает без вести. Инаугурация John Nightmare, бывшего оперативника спецотряда HRT под руководством FBI, участвовавшего в штурме.</span></div>
+        <div class="node hot" style="--i:6"><time>29 октября</time><b>Шериф в эфире</b><span>Калкин Шварц: «Мы им не рабы». Экс-губернатор числится пропавшим без вести, полиция ведёт поиски.</span></div>
       </div>
     </section>
 
