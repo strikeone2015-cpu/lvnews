@@ -1256,7 +1256,7 @@ a:focus-visible,button:focus-visible,.ph:focus-visible,.rd:focus-visible{outline
 
   // Музыка
   var au=document.getElementById('music'),pl=document.getElementById('player'),btn=document.getElementById('playBtn'),ic=document.getElementById('playIcon'),hint=document.getElementById('trackHint');
-  au.volume=0.4;
+  au.volume=0.36;
   function ui(on){pl.classList.toggle('playing',on);ic.setAttribute('d',on?'M4 2.5h3v11H4zm5 0h3v11H9z':'M4 2.5v11l9-5.5z');btn.setAttribute('aria-label',on?'Выключить музыку':'Включить музыку');hint.textContent=on?'Играет в выпуске':'Нажмите, чтобы включить'}
   function start(){var p=au.play();if(p&&p.then)p.then(function(){ui(true)}).catch(function(){ui(false);pl.classList.add('nudge')});else ui(true)}
   btn.addEventListener('click',function(e){e.stopPropagation();if(au.paused)start();else{au.pause();ui(false)}});
