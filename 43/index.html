@@ -498,9 +498,9 @@ html,body{overflow-anchor:none}
 @keyframes halo{50%{transform:scale(1.12);opacity:.75}}
 .hw-face{animation:flick 2.2s steps(1) infinite}
 @keyframes flick{0%,100%{opacity:1}42%{opacity:.75}44%{opacity:1}70%{opacity:.85}72%{opacity:1}}
-.ember{position:absolute;bottom:22%;width:5px;height:5px;border-radius:50%;background:#ffb347;box-shadow:0 0 8px #ff7a24;opacity:0;animation:rise 4s ease-in infinite}
+.ember{position:absolute;bottom:22%;width:5px;height:5px;border-radius:50%;background:#ffb347;box-shadow:0 0 8px #ff7a24;opacity:0;animation:emberRise 4s ease-in infinite}
 .e1{left:30%}.e2{left:48%;animation-delay:.8s}.e3{left:62%;animation-delay:1.6s}.e4{left:40%;animation-delay:2.4s}.e5{left:70%;animation-delay:3.2s}
-@keyframes rise{0%{opacity:0;transform:translateY(0) scale(1)}15%{opacity:1}100%{opacity:0;transform:translateY(-160px) translateX(14px) scale(.3)}}
+@keyframes emberRise{0%{opacity:0;transform:translateY(0) scale(1)}15%{opacity:1}100%{opacity:0;transform:translateY(-160px) translateX(14px) scale(.3)}}
 /* Лайтбокс */
 .lb{position:fixed;inset:0;z-index:100;background:rgba(14,4,10,.94);display:grid;place-items:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));opacity:0;pointer-events:none;transition:opacity .35s var(--ease)}
 .lb.open{opacity:1;pointer-events:auto}
